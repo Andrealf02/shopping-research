@@ -1,4 +1,6 @@
-package org.main.inditexinterview.domain.model;
+package org.main.inditexinterview.domain;
+
+import org.main.inditexinterview.domain.exception.StockValidationException;
 
 import java.util.Objects;
 
@@ -7,16 +9,16 @@ public class Stock {
     private final int sizeM;
     private final int sizeL;
 
-    public Stock(int sizeS, int sizeM, int sizeL) {
+    public Stock(int sizeS, int sizeM, int sizeL) throws StockValidationException {
         validateStockInput(sizeS, sizeM, sizeL);
         this.sizeS = sizeS;
         this.sizeM = sizeM;
         this.sizeL = sizeL;
     }
 
-    private void validateStockInput(int sizeS, int sizeM, int sizeL) {
+    private void validateStockInput(int sizeS, int sizeM, int sizeL) throws StockValidationException {
         if (sizeS < 0 || sizeM < 0 || sizeL < 0) {
-            throw new IllegalArgumentException("Stock sizes must be non-negative");
+            throw new StockValidationException("Stock sizes must be non-negative");
         }
     }
 
@@ -30,6 +32,10 @@ public class Stock {
 
     public int getSizeL() {
         return sizeL;
+    }
+
+    public void validateStock() throws StockValidationException {
+        validateStockInput(sizeS, sizeM, sizeL);
     }
 
     @Override

@@ -1,6 +1,12 @@
-package org.main.inditexinterview.config;
+package org.main.inditexinterview.infraestructure.config;
 
-import org.main.inditexinterview.application.*;
+import org.main.inditexinterview.application.SalesUnitsMetricCalculator;
+import org.main.inditexinterview.application.StockRatioMetricCalculator;
+import org.main.inditexinterview.application.interfaces.MetricCalculator;
+import org.main.inditexinterview.application.interfaces.ProductService;
+import org.main.inditexinterview.application.service.ProductServiceImpl;
+import org.main.inditexinterview.domain.exception.ProductValidationException;
+import org.main.inditexinterview.domain.exception.StockValidationException;
 import org.main.inditexinterview.infraestructure.ProductRepository;
 import org.main.inditexinterview.infraestructure.ProductRepositoryImpl;
 import org.springframework.context.annotation.Bean;
@@ -11,11 +17,14 @@ import java.util.List;
 
 @Configuration
 public class AppConfig {
-
+    @Bean
+    public String apiVersion() {
+        return "v1";
+    }
 
     @Bean
     @Primary
-    public ProductRepository productRepository() {
+    public ProductRepository productRepository() throws ProductValidationException, StockValidationException {
         return new ProductRepositoryImpl();
     }
 

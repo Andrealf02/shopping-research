@@ -1,15 +1,19 @@
-package org.main.inditexinterview.domain.model;
+package org.main.inditexinterview.domain;
 
 import java.util.Map;
 import java.util.Objects;
+import org.main.inditexinterview.application.interfaces.WeightService;
+import org.main.inditexinterview.application.validator.SortingCriteriaValidator;
 
 public class SortingCriteria {
     private String metric;
     private Map<String, Double> weights;
+    private WeightService weightService;
 
-    public SortingCriteria(String metric, Map<String, Double> weights) {
+    public SortingCriteria(String metric, Map<String, Double> weights, WeightService weightService) {
         this.metric = metric;
         this.weights = weights;
+        this.weightService = weightService;
         validate();
     }
 
@@ -31,13 +35,11 @@ public class SortingCriteria {
         validate();
     }
 
-    private void validate() {
-        if (metric == null || metric.isEmpty()) {
-            throw new IllegalArgumentException("Metric cannot be null or empty");
-        }
+    public double getWeightForMetric(String metric) {
+        return weightService.getWeight(metric, weights);
+    }
 
-        if (weights == null || weights.isEmpty()) {
-            throw new IllegalArgumentException("Weights cannot be null or empty");
-        }
+    private void validate() {
+        SortingCriteriaValidator.validate(this);
     }
 }

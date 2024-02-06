@@ -1,4 +1,6 @@
-package org.main.inditexinterview.domain.model;
+package org.main.inditexinterview.presentation;
+
+import org.main.inditexinterview.domain.SortingCriteria;
 
 public class SortingRequest {
     private SortingCriteria sortingCriteria;

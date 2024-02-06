@@ -1,4 +1,7 @@
-package org.main.inditexinterview.domain.model;
+package org.main.inditexinterview.domain;
+
+import org.main.inditexinterview.domain.exception.ProductValidationException;
+import org.main.inditexinterview.domain.exception.StockValidationException;
 
 import java.util.Objects;
 
@@ -8,7 +11,7 @@ public class Product {
     private final int salesUnits;
     private final Stock stock;
 
-    public Product(long id, String name, int salesUnits, Stock stock) {
+    public Product(long id, String name, int salesUnits, Stock stock) throws ProductValidationException, StockValidationException {
         validateInput(id, name, salesUnits, stock);
         this.id = id;
         this.name = name;
@@ -16,15 +19,16 @@ public class Product {
         this.stock = stock;
     }
 
-    private void validateInput(long id, String name, int salesUnits, Stock stock) {
+    private void validateInput(long id, String name, int salesUnits, Stock stock) throws ProductValidationException, StockValidationException {
         Objects.requireNonNull(name, "Product name cannot be null");
         if (id <= 0) {
-            throw new IllegalArgumentException("Product id must be greater than 0");
+            throw new ProductValidationException("Product id must be greater than 0");
         }
         if (salesUnits < 0) {
-            throw new IllegalArgumentException("Sales units must be non-negative");
+            throw new ProductValidationException("Sales units must be non-negative");
         }
         Objects.requireNonNull(stock, "Stock cannot be null");
+        stock.validateStock();
     }
 
     public long getId() {
@@ -52,5 +56,4 @@ public class Product {
                 ", stock=" + stock +
                 '}';
     }
-
 }
