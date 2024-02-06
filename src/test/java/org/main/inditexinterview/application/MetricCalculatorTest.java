@@ -1,4 +1,4 @@
-package org.main.inditexinterview.application.interfaces;
+package org.main.inditexinterview.application;
 
 import org.junit.jupiter.api.Test;
 import org.main.inditexinterview.application.SalesUnitsMetricCalculator;

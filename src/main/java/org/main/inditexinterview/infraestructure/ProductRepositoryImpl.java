@@ -1,7 +1,6 @@
 package org.main.inditexinterview.infraestructure;
 
 import org.main.inditexinterview.domain.Product;
-import org.main.inditexinterview.domain.exception.ProductValidationException;
 import org.main.inditexinterview.domain.Stock;
 import org.main.inditexinterview.domain.exception.StockValidationException;
 import org.springframework.stereotype.Repository;
@@ -14,7 +13,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     private final List<Product> products;
 
-    public ProductRepositoryImpl() throws ProductValidationException, StockValidationException {
+    public ProductRepositoryImpl() throws StockValidationException {
         this.products = new ArrayList<>();
         products.add(new Product(1, "V-NECK BASIC SHIRT", 100, new Stock(4, 9, 0)));
         products.add(new Product(2, "CONTRASTING FABRIC T-SHIRT", 50, new Stock(35, 9, 9)));

@@ -1,10 +1,15 @@
 package org.main.inditexinterview.presentation;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.main.inditexinterview.domain.SortingCriteria;
+
 
 public class SortingRequest {
     private SortingCriteria sortingCriteria;
 
+    @JsonCreator
     public SortingRequest(SortingCriteria sortingCriteria) {
         this.sortingCriteria = sortingCriteria;
         validate();

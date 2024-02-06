@@ -1,7 +1,7 @@
 package org.main.inditexinterview.infraestructure;
 
-import org.main.inditexinterview.application.interfaces.ProductService;
 import org.main.inditexinterview.application.exception.ProductSortingException;
+import org.main.inditexinterview.application.interfaces.ProductService;
 import org.main.inditexinterview.domain.Product;
 import org.main.inditexinterview.infraestructure.exception.SortingException;
 import org.main.inditexinterview.presentation.SortingRequest;
@@ -11,7 +11,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,10 +28,6 @@ public class ProductController {
     @PostMapping("/sort")
     public ResponseEntity<List<Product>> sortProducts(@RequestBody SortingRequest sortingRequest, BindingResult result) throws MethodArgumentNotValidException {
         if (result.hasErrors()) {
-            List<String> errors = result.getAllErrors()
-                    .stream()
-                    .map(error -> error.getDefaultMessage())
-                    .collect(Collectors.toList());
             throw new MethodArgumentNotValidException(null, result);
         }
 
