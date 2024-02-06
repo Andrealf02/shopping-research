@@ -1,9 +1,9 @@
 package org.main.inditexinterview.domain;
 
-import java.util.Map;
-import java.util.Objects;
 import org.main.inditexinterview.application.interfaces.WeightService;
 import org.main.inditexinterview.application.validator.SortingCriteriaValidator;
+
+import java.util.Map;
 
 public class SortingCriteria {
     private String metric;

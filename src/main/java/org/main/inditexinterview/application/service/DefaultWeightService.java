@@ -1,4 +1,4 @@
-package org.main.inditexinterview.application;
+package org.main.inditexinterview.application.service;
 
 import org.main.inditexinterview.application.interfaces.WeightService;
 
