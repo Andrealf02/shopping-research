@@ -1,8 +1,6 @@
 package org.main.inditexinterview.presentation;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.main.inditexinterview.domain.SortingCriteria;
 
 

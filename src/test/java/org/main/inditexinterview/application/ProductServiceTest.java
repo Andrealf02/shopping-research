@@ -1,7 +1,6 @@
 package org.main.inditexinterview.application;
 
 import org.junit.jupiter.api.Test;
-import org.main.inditexinterview.application.SalesUnitsMetricCalculator;
 import org.main.inditexinterview.application.exception.ProductSortingException;
 import org.main.inditexinterview.application.interfaces.MetricCalculator;
 import org.main.inditexinterview.application.interfaces.ProductService;
@@ -13,13 +12,15 @@ import org.main.inditexinterview.domain.Stock;
 import org.main.inditexinterview.domain.exception.StockValidationException;
 import org.main.inditexinterview.infraestructure.ProductRepository;
 import org.main.inditexinterview.infraestructure.exception.SortingException;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ProductServiceTest {
 

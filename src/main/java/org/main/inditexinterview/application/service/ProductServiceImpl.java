@@ -5,8 +5,6 @@ import org.main.inditexinterview.application.interfaces.MetricCalculator;
 import org.main.inditexinterview.application.interfaces.ProductService;
 import org.main.inditexinterview.domain.Product;
 import org.main.inditexinterview.domain.SortingCriteria;
-import org.main.inditexinterview.domain.exception.ProductValidationException;
-import org.main.inditexinterview.domain.exception.StockValidationException;
 import org.main.inditexinterview.infraestructure.ProductRepository;
 import org.main.inditexinterview.infraestructure.exception.SortingException;
 

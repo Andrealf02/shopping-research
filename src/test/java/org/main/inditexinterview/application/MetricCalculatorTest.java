@@ -1,8 +1,6 @@
 package org.main.inditexinterview.application;
 
 import org.junit.jupiter.api.Test;
-import org.main.inditexinterview.application.SalesUnitsMetricCalculator;
-import org.main.inditexinterview.application.StockRatioMetricCalculator;
 import org.main.inditexinterview.application.service.DefaultWeightService;
 import org.main.inditexinterview.domain.Product;
 import org.main.inditexinterview.domain.SortingCriteria;

@@ -6,7 +6,6 @@ import org.main.inditexinterview.domain.exception.StockValidationException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 public class Product {
     private final long id;
